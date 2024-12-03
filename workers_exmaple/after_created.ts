@@ -16,7 +16,7 @@ export default async (context: PlatformContext, data: AfterCreateRequest): Promi
             //save the repokey from the request object
             const repoKey = data.metadata.repoPath.key;
             //save audioUrl that will be sent with my payload to the external service
-            const audioUrl = `https://devreleplus.jfrog.io/artifactory/${repoKey}/${data.metadata.repoPath.path}`; 
+            const audioUrl = `https://<YOUR_JFROG_NAME>.jfrog.io/artifactory/${repoKey}/${data.metadata.repoPath.path}`; 
             //set the payload
             const payload = {
                 "token": context.platformToken,
@@ -24,7 +24,7 @@ export default async (context: PlatformContext, data: AfterCreateRequest): Promi
                 "words": "secret,tokens,token,credentials,sensitive,Kajagoogoo,shy,toshay,hashhash,how,do,i"
             }
             // set service url const that will have the service url, can also be held inside a secret if i want 
-            const serviceUrl = "https://c88c-94-188-248-83.ngrok-free.app/check-file";
+            const serviceUrl = "<EXTERNAL_SERVICE_URL>";
             
             // fire the request to the external service with all the details
             const analyze = await context.clients.axios.post(serviceUrl, payload);
