@@ -65,7 +65,7 @@ app.post('/check-file', async (req, res) => {
 
                 // Update the file metadata to add "sensitive: true"
                 const artifactPath = fileUrl.split('/artifactory/')[1];
-                await axios.put(`https://devreleplus.jfrog.io/artifactory/api/storage/${artifactPath}?properties=sensitive=true`, {
+                await axios.put(`https://<YOUR_JFROG>.jfrog.io/artifactory/api/storage/${artifactPath}?properties=sensitive=true`, {
                     sensitive: true
                 }, {
                     headers: {
